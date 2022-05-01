@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
+import AddItem from "./components/AddItem/AddItem";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
@@ -22,6 +23,7 @@ function App() {
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/home' element={<Home />} />
+					<Route path='/addItem' element={<AddItem />} />
 					<Route path='/login' element={<Login />} />
 					<Route path='/singup' element={<Singup />} />
 					<Route path='*' element={<NotFound />} />

@@ -48,16 +48,22 @@ const Navbar = () => {
 								Home
 							</Link>
 						</li>
-						<li className='nav-item'>
-							<Link className='nav-link' to='/about'>
-								About
-							</Link>
-						</li>
-						<li className='nav-item'>
-							<Link className='nav-link' to='/blog'>
-								Blog
-							</Link>
-						</li>
+						{loginUser.uid ? (
+							<>
+								<li className='nav-item'>
+									<Link className='nav-link' to='/addItem'>
+										Add Item
+									</Link>
+								</li>
+								<li className='nav-item'>
+									<Link className='nav-link' to='/manageItem'>
+										Manage Item
+									</Link>
+								</li>
+							</>
+						) : (
+							""
+						)}
 						<li className='nav-item'>
 							{loginUser.uid ? (
 								<button
