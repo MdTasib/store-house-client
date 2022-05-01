@@ -9,26 +9,32 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { UserAuth } from "../../App";
 import googleIcon from "../../assets/icon/google.png";
 import auth from "../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const GoogleLogin = () => {
 	const [loginUser, setLoginUser] = useContext(UserAuth);
+	const [user, loading] = useAuthState(auth);
 	const navigate = useNavigate();
 	const location = useLocation();
 
 	let from = location.state?.from?.pathname || "/";
+
+	if (loading) {
+		return <p>loading...</p>;
+	}
 
 	// google auth provider and implement user google sing in
 	const provider = new GoogleAuthProvider();
 	const handleGoogleSingin = () => {
 		signInWithPopup(auth, provider)
 			.then(result => {
-				const user = result.user;
-				setLoginUser(user);
+				const currentUser = result.user;
+				setLoginUser(currentUser);
 				toast.success("User Singin successfully");
-				setLoginUser(user);
+				setLoginUser(currentUser);
 				userVerifyEmail();
 
-				if (user.uid) {
+				if (currentUser.uid) {
 					navigate(from, { replace: true });
 				}
 			})

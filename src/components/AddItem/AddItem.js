@@ -1,14 +1,42 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
 import auth from "../../firebase.init";
 
 const AddItem = () => {
-	const [user, loading] = useAuthState(auth);
+	const [user] = useAuthState(auth);
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		const name = event.target.name.value;
+
 		const email = user.email;
+		const name = event.target.name.value;
+		const description = event.target.description.value;
+		const price = event.target.price.value;
+		const supplier = event.target.supplier.value;
+		const imageUrl = event.target.image.value;
+
+		const url = "http://localhost:5000/addItem";
+		fetch(url, {
+			method: "POST",
+			headers: {
+				authorization: `${user.email} ${localStorage.getItem("accessToken")}`,
+				"content-type": "application/json",
+			},
+			body: JSON.stringify({
+				email,
+				name,
+				description,
+				price,
+				supplier,
+				imageUrl,
+			}),
+		})
+			.then(res => res.json())
+			.then(data => {
+				event.target.reset();
+				toast.success("Item Uploaded Successfully");
+			});
 	};
 
 	return (
