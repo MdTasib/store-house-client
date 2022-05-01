@@ -1,0 +1,7 @@
+.card img {
+	transition: all 0.2s;
+}
+.card:hover img {
+	filter: brightness(85%) contrast(100%);
+	background: white !important;
+}

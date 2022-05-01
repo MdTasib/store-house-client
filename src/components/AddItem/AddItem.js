@@ -15,6 +15,7 @@ const AddItem = () => {
 		const price = event.target.price.value;
 		const supplier = event.target.supplier.value;
 		const imageUrl = event.target.image.value;
+		const quantity = event.target.quantity.value;
 
 		const url = "http://localhost:5000/addItem";
 		fetch(url, {
@@ -30,6 +31,7 @@ const AddItem = () => {
 				price,
 				supplier,
 				imageUrl,
+				quantity,
 			}),
 		})
 			.then(res => res.json())
@@ -77,6 +79,13 @@ const AddItem = () => {
 						className='form-control my-3'
 						placeholder='Supplier Name'
 						name='supplier'
+						required
+					/>
+					<input
+						type='text'
+						className='form-control my-3'
+						placeholder='Quantity'
+						name='quantity'
 						required
 					/>
 					<input

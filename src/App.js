@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import AddItem from "./components/AddItem/AddItem";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
+import Inventory from "./components/Inventory/Inventory";
 import Login from "./components/Login/Login";
 import Navbar from "./components/Navbar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
@@ -24,6 +25,7 @@ function App() {
 					<Route path='/' element={<Home />} />
 					<Route path='/home' element={<Home />} />
 					<Route path='/addItem' element={<AddItem />} />
+					<Route path='/inventory/:id' element={<Inventory />} />
 					<Route path='/login' element={<Login />} />
 					<Route path='/singup' element={<Singup />} />
 					<Route path='*' element={<NotFound />} />
