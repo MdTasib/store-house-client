@@ -7,12 +7,7 @@ const Inventory = () => {
 	const [products, setProducts] = useProducts([]);
 	const navigate = useNavigate();
 
-	const handleManegeInventory = () => {
-		navigate("/manageInventorie");
-	};
-
-	const product = products.find(product => product._id === id);
-
+	const product = products?.find(product => product._id === id);
 	let [quantity, setQuantity] = useState(Number(product?.quantity));
 
 	useEffect(() => {
@@ -30,14 +25,26 @@ const Inventory = () => {
 		setQuantity(newQuantity);
 	};
 
-	const updateQuantityOnDatabase = () => {
-		fetch(`http://localhost:5000/product/${id}`, {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({}),
-		});
+	useEffect(() => {
+		if (isNaN(quantity)) {
+			setTimeout(() => {
+				console.log("hello");
+			}, 1500);
+		} else {
+			fetch(`http://localhost:5000/product/${id}`, {
+				method: "PUT",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ quantity }),
+			});
+		}
+	}, [id, quantity]);
+
+	console.log(quantity || 0);
+
+	const handleManegeInventory = () => {
+		navigate("/manageInventorie");
 	};
 
 	return (
@@ -59,7 +66,7 @@ const Inventory = () => {
 						<b>Price</b> : {product?.price}
 					</p>
 					<p>
-						<b>Quantity</b> : {product?.quantity}
+						<b>Quantity</b> : {quantity}
 					</p>
 					<button
 						onClick={() => handleUpdateQuantity(product?._id)}

@@ -20,29 +20,20 @@ const ManageInventorie = () => {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						{products.map(product => {
-							console.log(product);
-							<></>;
-						})}
-					</tr>
+					{products?.map(product => {
+						<tr>
+							<td>{product?.name}</td>
+							<td>{product?.description}</td>
+							<td>{product?.price}</td>
+							<td>{product?.quantity}</td>
+							<td>{product?._id}</td>
+							<td>{product?.supplier}</td>
+						</tr>;
+					})}
 				</tbody>
 			</table>
 		</div>
 	);
 };
-
-function Td({ product }) {
-	return (
-		<>
-			<td>{product?.name}</td>
-			<td>{product?.description}</td>
-			<td>{product?.price}</td>
-			<td>{product?.quantity}</td>
-			<td>{product?._id}</td>
-			<td>{product?.supplier}</td>
-		</>
-	);
-}
 
 export default ManageInventorie;
