@@ -57,7 +57,12 @@ const Navbar = () => {
 								</li>
 								<li className='nav-item'>
 									<Link className='nav-link' to='/manageInventorie'>
-										Manage Item
+										Manage
+									</Link>
+								</li>
+								<li className='nav-item'>
+									<Link className='nav-link' to='/myItem'>
+										My Item
 									</Link>
 								</li>
 							</>

@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useProducts from "../../Hooks/useProducts";
 import removeIcon from "../../assets/icon/remove.png";
-import "./ManageInventorie.css";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const ManageInventorie = () => {
+const MyItems = () => {
 	const [pageReload, setPageReload] = useState(false);
 	const [products, setProducts] = useProducts(pageReload);
 	const navigate = useNavigate();
@@ -63,7 +62,7 @@ const ManageInventorie = () => {
 			) : (
 				<div>
 					<h4 className='py-5 m-0 text-center fw-bold bg-dark text-white'>
-						Manage Inventory Products
+						Your All Products
 					</h4>
 					<table className='table table-dark table-hover mb-0'>
 						<thead>
@@ -89,4 +88,4 @@ const ManageInventorie = () => {
 	);
 };
 
-export default ManageInventorie;
+export default MyItems;
