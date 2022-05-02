@@ -3,10 +3,12 @@ import useProducts from "../../Hooks/useProducts";
 import removeIcon from "../../assets/icon/remove.png";
 import "./ManageInventorie.css";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const ManageInventorie = () => {
 	const [pageReload, setPageReload] = useState(false);
 	const [products, setProducts] = useProducts(pageReload);
+	const navigate = useNavigate();
 
 	const reduceProduct = (product, index) => {
 		return (
@@ -43,6 +45,10 @@ const ManageInventorie = () => {
 		}
 	};
 
+	const handleNavigate = () => {
+		navigate("/addItem");
+	};
+
 	return (
 		<div>
 			<h4 className='py-5 m-0 text-center fw-bold bg-dark text-white'>
@@ -60,6 +66,11 @@ const ManageInventorie = () => {
 				</thead>
 				<tbody>{products.map(reduceProduct)}</tbody>
 			</table>
+			<div className='text-center py-5 bg-dark'>
+				<button onClick={handleNavigate} className='btn btn-light fw-bold'>
+					ADD NEW ITEM
+				</button>
+			</div>
 		</div>
 	);
 };
