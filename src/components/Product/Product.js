@@ -29,7 +29,7 @@ const Product = ({ item }) => {
 						<div className='col-md-6'>
 							<button
 								onClick={() => handleUpdate(_id)}
-								className='btn btn-warning text-white'>
+								className='btn btn-dark text-white'>
 								UPDATE
 							</button>
 						</div>

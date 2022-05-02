@@ -56,7 +56,7 @@ const Navbar = () => {
 									</Link>
 								</li>
 								<li className='nav-item'>
-									<Link className='nav-link' to='/manageItem'>
+									<Link className='nav-link' to='/manageInventorie'>
 										Manage Item
 									</Link>
 								</li>

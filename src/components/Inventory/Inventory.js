@@ -1,28 +1,43 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import useProducts from "../../Hooks/useProducts";
 
 const Inventory = () => {
-	const [products, setProducts] = useProducts([]);
-	const [quantity, setQuantity] = useState(0);
 	const { id } = useParams();
+	const [products, setProducts] = useProducts([]);
+	const navigate = useNavigate();
+
+	const handleManegeInventory = () => {
+		navigate("/manageInventorie");
+	};
 
 	const product = products.find(product => product._id === id);
 
-	const handleUpdateQuantity = id => {
-		const updateProduct = { ...product };
-		let productQuantity = updateProduct.quantity;
-		setQuantity(productQuantity);
-		setQuantity(quantity - 1);
-		console.log(quantity);
+	let [quantity, setQuantity] = useState(Number(product?.quantity));
 
-		// fetch(`http://localhost:4000/note/${id}`, {
-		// 	method: "PUT",
-		// 	headers: {
-		// 		"Content-Type": "application/json",
-		// 	},
-		// 	body: JSON.stringify({}),
-		// })
+	useEffect(() => {
+		setQuantity(Number(product?.quantity));
+	}, [product]);
+
+	const handleUpdateQuantity = () => {
+		setQuantity(prev => prev - 1);
+	};
+
+	const handleUpdateQuantityOnForm = event => {
+		event.preventDefault();
+		const quantityInput = event.target.quantityValue.value;
+		const newQuantity = Number(quantityInput) + quantity;
+		setQuantity(newQuantity);
+	};
+
+	const updateQuantityOnDatabase = () => {
+		fetch(`http://localhost:5000/product/${id}`, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({}),
+		});
 	};
 
 	return (
@@ -32,7 +47,7 @@ const Inventory = () => {
 					Do you want to update the product stock quantity?
 				</h3>
 			</div>
-			<div className='row'>
+			<div className='row align-items-center'>
 				<div className='col-md-6'>
 					<img src={product?.imageUrl} className='w-75' alt='' />
 					<h3>{product?.name}</h3>
@@ -52,7 +67,26 @@ const Inventory = () => {
 						Delivered
 					</button>
 				</div>
-				<div className='col-md-6'></div>
+				<div className='col-md-6'>
+					<h3 className='fw-bold'>Increase Your Product Stock Quantity</h3>
+					<form onSubmit={handleUpdateQuantityOnForm} className='d-flex mt-4'>
+						<input
+							className='form-control'
+							type='search'
+							placeholder='Product Quantity'
+							name='quantityValue'
+							aria-label='Search'
+						/>
+						<button className='btn btn-dark' type='submit'>
+							UPDATE
+						</button>
+					</form>
+					<div className='mt-4'>
+						<button onClick={handleManegeInventory} className='btn btn-dark'>
+							Go To Manage Inventories
+						</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
