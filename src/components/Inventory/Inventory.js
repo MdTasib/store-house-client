@@ -54,47 +54,57 @@ const Inventory = () => {
 					Do you want to update the product stock quantity?
 				</h3>
 			</div>
-			<div className='row align-items-center'>
-				<div className='col-md-6'>
-					<img src={product?.imageUrl} className='w-75' alt='' />
-					<h3>{product?.name}</h3>
-					<small className='pb-2 d-block'>{product?.description}</small>
-					<p className='m-0'>
-						<b>Supplier</b> : {product?.supplier}
-					</p>
-					<p className='m-0'>
-						<b>Price</b> : {product?.price}
-					</p>
-					<p>
-						<b>Quantity</b> : {quantity}
-					</p>
-					<button
-						onClick={() => handleUpdateQuantity(product?._id)}
-						className='btn btn-dark'>
-						Delivered
-					</button>
-				</div>
-				<div className='col-md-6'>
-					<h3 className='fw-bold'>Increase Your Product Stock Quantity</h3>
-					<form onSubmit={handleUpdateQuantityOnForm} className='d-flex mt-4'>
-						<input
-							className='form-control'
-							type='search'
-							placeholder='Product Quantity'
-							name='quantityValue'
-							aria-label='Search'
-						/>
-						<button className='btn btn-dark' type='submit'>
-							UPDATE
-						</button>
-					</form>
-					<div className='mt-4'>
-						<button onClick={handleManegeInventory} className='btn btn-dark'>
-							Go To Manage Inventories
-						</button>
+			{products.length === 0 ? (
+				<div
+					style={{ height: "50vh" }}
+					className='p-5 d-flex align-items-center justify-content-center'>
+					<div className='spinner-border' role='status'>
+						<span className='visually-hidden'>Loading...</span>
 					</div>
 				</div>
-			</div>
+			) : (
+				<div className='row align-items-center'>
+					<div className='col-md-6'>
+						<img src={product?.imageUrl} className='w-75' alt='' />
+						<h3>{product?.name}</h3>
+						<small className='pb-2 d-block'>{product?.description}</small>
+						<p className='m-0'>
+							<b>Supplier</b> : {product?.supplier}
+						</p>
+						<p className='m-0'>
+							<b>Price</b> : {product?.price}
+						</p>
+						<p>
+							<b>Quantity</b> : {quantity}
+						</p>
+						<button
+							onClick={() => handleUpdateQuantity(product?._id)}
+							className='btn btn-dark'>
+							Delivered
+						</button>
+					</div>
+					<div className='col-md-6'>
+						<h3 className='fw-bold'>Increase Your Product Stock Quantity</h3>
+						<form onSubmit={handleUpdateQuantityOnForm} className='d-flex mt-4'>
+							<input
+								className='form-control'
+								type='search'
+								placeholder='Product Quantity'
+								name='quantityValue'
+								aria-label='Search'
+							/>
+							<button className='btn btn-dark' type='submit'>
+								UPDATE
+							</button>
+						</form>
+						<div className='mt-4'>
+							<button onClick={handleManegeInventory} className='btn btn-dark'>
+								Go To Manage Inventories
+							</button>
+						</div>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };
