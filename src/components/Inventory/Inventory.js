@@ -4,7 +4,7 @@ import useProducts from "../../Hooks/useProducts";
 
 const Inventory = () => {
 	const { id } = useParams();
-	const [products, setProducts] = useProducts([]);
+	const [products, setProducts] = useProducts();
 	const navigate = useNavigate();
 
 	const product = products?.find(product => product._id === id);
