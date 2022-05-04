@@ -41,8 +41,6 @@ const Inventory = () => {
 		}
 	}, [id, quantity]);
 
-	console.log(quantity || 0);
-
 	const handleManegeInventory = () => {
 		navigate("/manageInventorie");
 	};

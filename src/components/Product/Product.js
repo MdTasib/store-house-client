@@ -12,7 +12,11 @@ const Product = ({ item }) => {
 	return (
 		<div className='col'>
 			<div className='card border-0 h-100'>
-				<img src={imageUrl} className='card-img-top w-75 mx-auto' alt='...' />
+				<img
+					src={imageUrl}
+					className='card-img-top pt-2 w-75 mx-auto'
+					alt='...'
+				/>
 				<div className='card-body'>
 					<h5 className='card-title'>{name}</h5>
 					<small className='card-text'>{description.slice(0, 100)}</small>

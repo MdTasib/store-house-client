@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import AddItem from "./components/AddItem/AddItem";
+import Blog from "./components/Blog/Blog";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import Inventory from "./components/Inventory/Inventory";
@@ -26,6 +27,7 @@ function App() {
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/home' element={<Home />} />
+					<Route path='/blog' element={<Blog />} />
 					<Route
 						path='/addItem'
 						element={

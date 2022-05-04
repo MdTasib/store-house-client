@@ -48,6 +48,11 @@ const Navbar = () => {
 								Home
 							</Link>
 						</li>
+						<li className='nav-item'>
+							<Link className='nav-link' aria-current='page' to='/blog'>
+								Blog
+							</Link>
+						</li>
 						{loginUser.uid ? (
 							<>
 								<li className='nav-item'>
