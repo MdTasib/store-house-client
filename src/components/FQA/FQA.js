@@ -5,7 +5,7 @@ const FQA = () => {
 	return (
 		<div className='my-5'>
 			<div className='container'>
-				<div className='row'>
+				<div className='row align-items-center'>
 					<div className='col-md-6'>
 						<h5 className='fw-bold'>Why is Destar the best choice for you?</h5>
 						<small>
