@@ -17,7 +17,7 @@ const AddItem = () => {
 		const imageUrl = event.target.image.value;
 		const quantity = event.target.quantity.value;
 
-		const url = "http://localhost:5000/addItem";
+		const url = "https://fast-savannah-73307.herokuapp.com/addItem";
 		fetch(url, {
 			method: "POST",
 			headers: {

@@ -34,7 +34,7 @@ const ManageInventorie = () => {
 	const handleDelete = id => {
 		const confirm = window.confirm("Are you sure delete this item ?");
 		if (confirm) {
-			fetch(`http://localhost:5000/product/${id}`, {
+			fetch(`https://fast-savannah-73307.herokuapp.com/product/${id}`, {
 				method: "DELETE",
 				headers: { "content-type": "application/json" },
 			})

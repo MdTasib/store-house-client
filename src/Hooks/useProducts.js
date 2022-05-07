@@ -4,7 +4,7 @@ const useProducts = pageReload => {
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/products`)
+		fetch(`https://fast-savannah-73307.herokuapp.com/products`)
 			.then(res => res.json())
 			.then(data => setProducts(data));
 	}, [pageReload]);

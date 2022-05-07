@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import useProducts from "../../Hooks/useProducts";
 
@@ -15,7 +16,11 @@ const Inventory = () => {
 	}, [product]);
 
 	const handleUpdateQuantity = () => {
-		setQuantity(prev => prev - 1);
+		if (quantity === 0) {
+			toast.error("Products are not in stock");
+		} else {
+			setQuantity(prev => prev - 1);
+		}
 	};
 
 	const handleUpdateQuantityOnForm = event => {
@@ -23,15 +28,14 @@ const Inventory = () => {
 		const quantityInput = event.target.quantityValue.value;
 		const newQuantity = Number(quantityInput) + quantity;
 		setQuantity(newQuantity);
+		event.target.reset();
 	};
 
 	useEffect(() => {
 		if (isNaN(quantity)) {
-			setTimeout(() => {
-				console.log("hello");
-			}, 1500);
+			setTimeout(() => {}, 1500);
 		} else {
-			fetch(`http://localhost:5000/product/${id}`, {
+			fetch(`https://fast-savannah-73307.herokuapp.com/product/${id}`, {
 				method: "PUT",
 				headers: {
 					"Content-Type": "application/json",
@@ -73,7 +77,12 @@ const Inventory = () => {
 							<b>Price</b> : {product?.price}
 						</p>
 						<p>
-							<b>Quantity</b> : {quantity}
+							<b>Quantity</b> :{" "}
+							{quantity <= 0 ? (
+								<b className='text-danger fw-bold'>SOLD</b>
+							) : (
+								quantity
+							)}
 						</p>
 						<button
 							onClick={() => handleUpdateQuantity(product?._id)}
