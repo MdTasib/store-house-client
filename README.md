@@ -13,3 +13,7 @@ This is a MERN Stack Project. I used this project mainly React Js and the server
 5. In the project, I used Firebase for the authentication.
 6. Technologies (frameworks, libraries) were used in this project
    `Express Js` `React Js` `MongoDB` `React Router Dom`, `Firebase`, `Bootstrap`, `Google Fonts`, `Tosts`, `React Firebase Hooks`
+
+### `STACKOVERFLOW - QUESTION`
+
+[https://stackoverflow.com/questions/72150577/how-to-use-dotenv-in-react-firebase](https://stackoverflow.com/questions/72150577/how-to-use-dotenv-in-react-firebase)
