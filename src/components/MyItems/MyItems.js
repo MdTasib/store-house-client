@@ -1,13 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useProducts from "../../Hooks/useProducts";
 import removeIcon from "../../assets/icon/remove.png";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const MyItems = () => {
 	const [pageReload, setPageReload] = useState(false);
-	const [products, setProducts] = useProducts(pageReload);
+	const [products, setProducts] = useState([]);
+	const [user] = useAuthState(auth);
 	const navigate = useNavigate();
+	const [isReload, setIsReload] = useState(false);
+
+	useEffect(() => {
+		const url = `http://localhost:5000/productByEmail?email=${user?.email}`;
+		fetch(url)
+			.then(res => res.json())
+			.then(data => {
+				setProducts(data);
+				setIsReload(!isReload);
+			});
+	}, [user?.email, isReload]);
 
 	const reduceProduct = (product, index) => {
 		return (
@@ -55,9 +69,7 @@ const MyItems = () => {
 				<div
 					style={{ height: "50vh" }}
 					className='p-5 d-flex align-items-center justify-content-center'>
-					<div className='spinner-border' role='status'>
-						<span className='visually-hidden'>Loading...</span>
-					</div>
+					<h3>Product Not Found</h3>
 				</div>
 			) : (
 				<div>
