@@ -14,7 +14,7 @@ const MyItems = () => {
 	const [isReload, setIsReload] = useState(false);
 
 	useEffect(() => {
-		const url = `http://localhost:5000/productByEmail?email=${user?.email}`;
+		const url = `https://fast-savannah-73307.herokuapp.com/productByEmail?email=${user?.email}`;
 		fetch(url)
 			.then(res => res.json())
 			.then(data => {
