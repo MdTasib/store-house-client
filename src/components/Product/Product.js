@@ -11,8 +11,9 @@ const Product = ({ item }) => {
 	};
 	return (
 		<div className='col'>
-			<div className='card border-0 h-100'>
+			<div className='card border-0 h-100' data-aos='flip-right'>
 				<img
+					data-aos='zoom-in'
 					src={imageUrl}
 					className='card-img-top pt-2 w-75 mx-auto'
 					alt='...'

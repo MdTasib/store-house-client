@@ -6,14 +6,17 @@ const Footer = () => {
 		<div className='bg-black py-5 text-light'>
 			<div className='container'>
 				<div className='row'>
-					<div className='col-md-3'>
+					<div className='col-md-3' data-aos='fade-right'>
 						<img src={logo} alt='' height='50' />
 						<p className='pt-4'>
 							Copyright &copy; {new Date().getFullYear()} Online STORE HOUSE
 						</p>
 					</div>
 					<div className='col-md-3'></div>
-					<div className='col-md-3'>
+					<div
+						className='col-md-3'
+						data-aos='fade-right'
+						data-aos-duration='1000'>
 						<ul className='list-unstyled'>
 							<li>
 								<small>About Online Products</small>
@@ -29,7 +32,10 @@ const Footer = () => {
 							</li>
 						</ul>
 					</div>
-					<div className='col-md-3'>
+					<div
+						className='col-md-3'
+						data-aos='fade-right'
+						data-aos-duration='2000'>
 						<ul className='list-unstyled'>
 							<li>
 								<small>Get Help</small>

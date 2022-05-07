@@ -44,7 +44,7 @@ const AddItem = () => {
 	return (
 		<div className='singup p-5'>
 			<div className='container w-50'>
-				<form onSubmit={handleSubmit} className='px-5'>
+				<form onSubmit={handleSubmit} className='px-5' data-aos='fade-up'>
 					<input
 						type='email'
 						className='form-control my-3'

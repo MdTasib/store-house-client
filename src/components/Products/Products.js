@@ -15,7 +15,9 @@ const Products = () => {
 		<div className='bg-light'>
 			<div className='container py-4'>
 				<div className='py-4 text-center'>
-					<h2 className='fw-bold'>STORED PRODUCTS</h2>
+					<h2 className='fw-bold' data-aos='fade-down'>
+						STORED PRODUCTS
+					</h2>
 				</div>
 				{products.length === 0 ? (
 					<div
@@ -33,7 +35,10 @@ const Products = () => {
 					</div>
 				)}
 				<div className='text-center mt-4'>
-					<button onClick={handleManegeInventory} className='btn btn-dark'>
+					<button
+						data-aos='fade-up'
+						onClick={handleManegeInventory}
+						className='btn btn-dark'>
 						Manage Inventories
 					</button>
 				</div>

@@ -6,7 +6,7 @@ const FQA = () => {
 		<div className='my-5'>
 			<div className='container'>
 				<div className='row align-items-center'>
-					<div className='col-md-6'>
+					<div className='col-md-6' data-aos='fade-right'>
 						<h5 className='fw-bold'>Why is Destar the best choice for you?</h5>
 						<small>
 							If you still have any doubts about choosing our company, here are
@@ -90,7 +90,7 @@ const FQA = () => {
 							</div>
 						</div>
 					</div>
-					<div className='col-md-6 text-end'>
+					<div className='col-md-6 text-end' data-aos='fade-left'>
 						<img src={deliverImg} className='w-100' alt='' />
 					</div>
 				</div>

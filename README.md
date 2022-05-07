@@ -8,7 +8,7 @@ This is a MERN Stack Project. I used this project mainly React Js and the server
 
 1. Users can signup and signin with email and password.
 2. Users can login to Google if they want.
-3. The user must be logged in to buy the service.
+3. The user must be logged in to add a new product, deliverd this product and much more.
 4. Users can add a new product upload.
 5. In the project, I used Firebase for the authentication.
 6. Technologies (frameworks, libraries) were used in this project

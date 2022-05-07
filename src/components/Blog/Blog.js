@@ -3,7 +3,7 @@ import React from "react";
 const Blog = () => {
 	return (
 		<div className='container py-5'>
-			<div className='card'>
+			<div className='card' data-aos='fade-right'>
 				<div className='card-body'>
 					<h4 className='card-title fw-bold'>
 						Difference between javascript and node js
@@ -37,7 +37,7 @@ const Blog = () => {
 					</div>
 				</div>
 			</div>
-			<div className='card my-3'>
+			<div className='card my-3' data-aos='fade-left'>
 				<div className='card-body'>
 					<h4 className='card-title fw-bold'>
 						Differences between sql and nosql databases
@@ -76,7 +76,7 @@ const Blog = () => {
 					</div>
 				</div>
 			</div>
-			<div className='card my-3'>
+			<div className='card my-3' data-aos='fade-right'>
 				<div className='card-body'>
 					<h4 className='card-title fw-bold'>
 						When should you use node js and when should you use mongodb

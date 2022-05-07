@@ -13,12 +13,17 @@ import Navbar from "./components/Navbar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import Singup from "./components/Singup/Singup";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // set context auth user
 export const UserAuth = createContext();
 
 function App() {
 	const [loginUser, setLoginUser] = useState({});
+
+	AOS.init({ duration: 1000 });
+
 	return (
 		<>
 			<UserAuth.Provider value={[loginUser, setLoginUser]}>
