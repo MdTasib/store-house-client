@@ -25,6 +25,7 @@ const ManageInventorie = () => {
 						src={removeIcon}
 						width={30}
 						alt=''
+						data-aos='fade-left'
 					/>
 				</td>
 			</tr>

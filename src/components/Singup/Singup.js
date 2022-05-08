@@ -84,6 +84,7 @@ const Singup = () => {
 				</div>
 				<form onSubmit={handleSubmit} className='px-5'>
 					<input
+						data-aos='fade-left'
 						ref={nameRef}
 						type='text'
 						className='form-control my-3'
@@ -91,6 +92,7 @@ const Singup = () => {
 						required
 					/>
 					<input
+						data-aos='fade-right'
 						ref={emailRef}
 						type='email'
 						className='form-control my-3'
@@ -98,6 +100,7 @@ const Singup = () => {
 						required
 					/>
 					<input
+						data-aos='fade-left'
 						ref={passwordRef}
 						type='password'
 						className='form-control my-3'
@@ -105,6 +108,7 @@ const Singup = () => {
 						required
 					/>
 					<input
+						data-aos='fade-right'
 						ref={confirmPasswordRef}
 						type='password'
 						className='form-control my-3'

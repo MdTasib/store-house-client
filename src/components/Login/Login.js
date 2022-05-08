@@ -64,6 +64,7 @@ const Login = () => {
 				</div>
 				<form onSubmit={handleSubmit} className='px-5'>
 					<input
+						data-aos='fade-right'
 						ref={emailRef}
 						type='email'
 						className='form-control my-3'
@@ -71,6 +72,7 @@ const Login = () => {
 						required
 					/>
 					<input
+						data-aos='fade-left'
 						ref={passwordRef}
 						type='password'
 						className='form-control my-3'

@@ -38,6 +38,7 @@ const MyItems = () => {
 						src={removeIcon}
 						width={30}
 						alt=''
+						data-aos='fade-left'
 					/>
 				</td>
 			</tr>
@@ -65,17 +66,17 @@ const MyItems = () => {
 
 	return (
 		<>
-			{products.length === 0 ? (
-				<div
-					style={{ height: "50vh" }}
-					className='p-5 d-flex align-items-center justify-content-center'>
-					<h3>Product Not Found</h3>
-				</div>
-			) : (
-				<div>
-					<h4 className='py-5 m-0 text-center fw-bold bg-dark text-white'>
-						Your All Products
-					</h4>
+			<div>
+				<h4 className='py-5 m-0 text-center fw-bold bg-dark text-white'>
+					Your All Products
+				</h4>
+				{products.length === 0 ? (
+					<div
+						style={{ height: "50vh" }}
+						className='p-5 d-flex align-items-center justify-content-center'>
+						<h3>Product Not Found</h3>
+					</div>
+				) : (
 					<table className='table table-dark table-hover mb-0'>
 						<thead>
 							<tr>
@@ -89,13 +90,13 @@ const MyItems = () => {
 						</thead>
 						<tbody>{products.map(reduceProduct)}</tbody>
 					</table>
-					<div className='text-center py-5 bg-dark'>
-						<button onClick={handleNavigate} className='btn btn-light fw-bold'>
-							ADD NEW ITEM
-						</button>
-					</div>
+				)}
+				<div className='text-center py-5 bg-dark'>
+					<button onClick={handleNavigate} className='btn btn-light fw-bold'>
+						ADD NEW ITEM
+					</button>
 				</div>
-			)}
+			</div>
 		</>
 	);
 };
